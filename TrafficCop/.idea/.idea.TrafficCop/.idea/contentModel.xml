@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="ControlMaps" t="Include">
+          <e p="GamepadControls.cs" t="Include" />
+          <e p="PointerControls.cs" t="Include" />
+        </e>
+        <e p="Demo" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Common" t="Include">
+              <e p="SceneLoadButton.cs" t="Include" />
+              <e p="ScoringController.cs" t="Include" />
+              <e p="VersionLabel.cs" t="Include" />
+            </e>
+            <e p="Drawing" t="Include">
+              <e p="DrawingController.cs" t="Include" />
+              <e p="DrawingLine.cs" t="Include" />
+              <e p="DrawingRenderer.cs" t="Include" />
+              <e p="DrawingTool.cs" t="Include" />
+              <e p="UI" t="Include">
+                <e p="ColorSwatch.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Menu" t="Include">
+              <e p="LevelSelectItem.cs" t="Include" />
+              <e p="LevelSelectScreen.cs" t="Include" />
+            </e>
+            <e p="Rolling" t="Include">
+              <e p="Ball.cs" t="Include" />
+              <e p="Checkpoint.cs" t="Include" />
+              <e p="UI" t="Include">
+                <e p="VirtualControlsDisabler.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Swiping" t="Include">
+              <e p="Bin.cs" t="Include" />
+              <e p="Gutter.cs" t="Include" />
+              <e p="SpawnController.cs" t="Include" />
+              <e p="SwipingController.cs" t="Include" />
+              <e p="Trash.cs" t="Include" />
+              <e p="TrashType.cs" t="Include" />
+            </e>
+            <e p="Tapping" t="Include">
+              <e p="Effects.cs" t="Include" />
+              <e p="SpawnController.cs" t="Include" />
+              <e p="TappingController.cs" t="Include" />
+              <e p="TapTarget.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="Drawing" t="Include">
+              <e p="Background.shader" t="Include" />
+              <e p="Capture.shader" t="Include" />
+              <e p="Tool.shader" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Epic Toon FX" t="Include">
+          <e p="Demo" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="ETFXButtonScript.cs" t="Include" />
+              <e p="ETFXFireProjectile.cs" t="Include" />
+              <e p="ETFXLoopScript.cs" t="Include" />
+              <e p="ETFXMouseOrbit.cs" t="Include" />
+              <e p="ETFXProjectileScript.cs" t="Include" />
+              <e p="ETFXSceneManager.cs" t="Include" />
+              <e p="ETFXTarget.cs" t="Include" />
+              <e p="VFX Library" t="Include">
+                <e p="ParticleEffectsLibrary.cs" t="Include" />
+                <e p="PEButtonScript.cs" t="Include" />
+                <e p="UICanvasManager.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Prefabs" t="Include">
+            <e p="Combat" t="Include">
+              <e p="Combat FX.txt" t="Include" />
+            </e>
+            <e p="Environment" t="Include">
+              <e p="Environment FX.txt" t="Include" />
+            </e>
+            <e p="Interactive" t="Include">
+              <e p="Interactive FX.txt" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="ETFXLightFade.cs" t="Include" />
+            <e p="ETFXPitchRandomizer.cs" t="Include" />
+            <e p="ETFXRotation.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Common" t="Include">
+            <e p="Helpers.cs" t="Include" />
+            <e p="Singleton.cs" t="Include" />
+          </e>
+          <e p="Controller" t="Include">
+            <e p="GamepadInputManager.cs" t="Include" />
+          </e>
+          <e p="Drawing" t="Include">
+            <e p="PointerInput.cs" t="Include" />
+            <e p="PointerInputManager.cs" t="Include" />
+          </e>
+          <e p="Gestures" t="Include">
+            <e p="ActiveGesture.cs" t="Include" />
+            <e p="GestureController.cs" t="Include" />
+            <e p="SwipeInput.cs" t="Include" />
+            <e p="TapInput.cs" t="Include" />
+          </e>
+          <e p="SimpleCameraController.cs" t="Include" />
+          <e p="TrafficCop" t="Include">
+            <e p="Car" t="Include">
+              <e p="Car.cs" t="Include" />
+            </e>
+            <e p="Controllers" t="Include">
+              <e p="SwipeController.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+        <e p="TutorialInfo" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Editor" t="Include">
+              <e p="ReadmeEditor.cs" t="Include" />
+            </e>
+            <e p="Readme.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+      <e p="TrafficCop.sln" t="IncludeFlat" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_TrafficCop.1019524034.00" t="ExcludeRecursive" />
+  </component>
+</project>
