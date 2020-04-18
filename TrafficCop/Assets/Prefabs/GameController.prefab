@@ -48,6 +48,10 @@ MonoBehaviour:
   oneStarTime: 10
   twoStarTime: 8
   threeStarTime: 6
+  maxForwardValue: -5
+  maxBackwardsValue: -13
+  maxLeftValue: -8
+  maxRightValue: 8
   endGameUi: {fileID: 0}
 --- !u!114 &3976730608203215579
 MonoBehaviour:

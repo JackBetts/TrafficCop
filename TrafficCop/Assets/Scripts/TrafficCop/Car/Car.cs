@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using InputSamples.Gestures;
+using TrafficCop.Controllers;
 using UnityEngine;
 
 namespace TrafficCop.Car
@@ -9,8 +10,12 @@ namespace TrafficCop.Car
     {
         public float moveSpeed; 
         public float lateralMoveDistance;
-        public float forwardMoveDistance; 
-        
+        public float forwardMoveDistance;
+
+        [Header("Audio")] public AudioSource aud;
+        public AudioClip movedCarSfx;
+        public AudioClip cannotMoveSfx;
+
         private bool canMove = true;
         private bool isMoving; 
         private Vector3 originPosition;
@@ -25,10 +30,20 @@ namespace TrafficCop.Car
         {
             if (!canMove) return;
             canMove = false;  
-            Vector2 direction = FinalSwipeValue(input.SwipeDirection); 
-            Debug.Log("Car Received swipe: X: " + direction.x + " Y: " + direction.y);
-
-            StartCoroutine(MoveCar(new Vector3(direction.x * lateralMoveDistance, 0, direction.y * forwardMoveDistance)));
+            Vector2 direction = FinalSwipeValue(input.SwipeDirection);
+            Vector3 movePos = new Vector3(direction.x * lateralMoveDistance, 0, direction.y * forwardMoveDistance);
+            Vector3 checkPos = transform.position + movePos; 
+            
+            if (CheckCanMove(checkPos))
+            {
+                PlayAudioClip(movedCarSfx);
+                StartCoroutine(MoveCar(movePos));
+            }
+            else
+            {
+                PlayAudioClip(cannotMoveSfx);
+                canMove = true;
+            }
         }
 
         private IEnumerator MoveCar(Vector3 direction)
@@ -36,7 +51,7 @@ namespace TrafficCop.Car
             isMoving = true; 
             
             originPosition = transform.position; 
-            Vector3 targetPosition = transform.position + direction;
+            Vector3 targetPosition = originPosition + direction;
             float step = moveSpeed * Time.deltaTime; 
             
             while (transform.position != targetPosition)
@@ -77,23 +92,24 @@ namespace TrafficCop.Car
             }
         }
 
-        private bool CheckCanMove(Vector2 direction)
+        public void PlayAudioClip(AudioClip clip)
         {
-            Vector3 rayDirection = new Vector3(direction.x, 0, direction.y);
-            Vector3 rayOrigin = transform.position;
-            rayOrigin.y += 2;
+            aud.clip = clip;
+            aud.Play();
+        }
 
-            Debug.DrawLine(rayOrigin, rayOrigin + rayDirection * 10);
-            if (Physics.Raycast(rayOrigin, rayOrigin + rayDirection, out RaycastHit hit, 10))
-            {
-                Debug.Log(hit.collider.name); 
-                if (hit.collider.GetComponent<Car>())
-                {
-                    return false;
-                }
-            }
+        private bool CheckCanMove(Vector3 finalPos)
+        {
+            Debug.Log("Check Can Move :: Final pos is : " + finalPos); 
+            GameController controller = GameController.Instance;
 
-            return true; 
+            if (finalPos.x > controller.maxRightValue) return false;
+            if (finalPos.x < controller.maxLeftValue) return false;
+
+            if (finalPos.z > controller.maxForwardValue) return false;
+            if (finalPos.z < controller.maxBackwardsValue) return false;
+
+             return true; 
         }
         private Vector2 FinalSwipeValue(Vector2 swipeInput)
         {

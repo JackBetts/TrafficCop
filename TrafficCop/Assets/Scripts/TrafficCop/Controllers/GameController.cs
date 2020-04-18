@@ -14,7 +14,12 @@ namespace TrafficCop.Controllers
         [Header("Level Settings")] public int levelNumber; 
         public float oneStarTime;
         public float twoStarTime;
-        public float threeStarTime; 
+        public float threeStarTime;
+
+        [Space] public float maxForwardValue;
+        public float maxBackwardsValue;
+        public float maxLeftValue;
+        public float maxRightValue; 
 
         public EndGameUiPanel endGameUi; 
         

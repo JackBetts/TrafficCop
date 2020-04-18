@@ -11,7 +11,8 @@ namespace TrafficCop.Controllers
         [SerializeField] private GestureController gestureController; 
         private readonly Dictionary<int, Car.Car> swipeMapping = new Dictionary<int, Car.Car>();
 
-        public Camera mainCam; 
+        public Camera mainCam;
+        public RectTransform fingerTrail;
 
         private void OnEnable()
         {
@@ -41,13 +42,14 @@ namespace TrafficCop.Controllers
 
         private void GestureControllerOnPotentiallySwiped(SwipeInput obj)
         {
-           
         }
 
         private void GestureControllerOnPressed(SwipeInput obj)
         {
             swipeMapping.Remove(obj.InputId);
 
+            
+            
             RaycastHit hit;
             Ray ray = mainCam.ScreenPointToRay(obj.EndPosition);
             if (Physics.Raycast(ray, out hit, 500f))
