@@ -1,26 +1,46 @@
 ﻿using System;
 using UnityEngine; 
+using DG.Tweening;
+using TrafficCop.Controllers;
+using TrafficCop.Utility;
 
 namespace TrafficCop.Car
 {
     public class PoliceCar : Car
     {
+
+        public float endMoveDuration;
+        public float endMovePos; 
+        
         public Transform raycastStart;
         public float raycastLength;
+        public float checkWinDelay; 
 
+        private float lastCheckTime = 0;
         private bool hasWon;
-        private void Start()
-        {
-            //InvokeRepeating(nameof(CheckForWin), 1, 1);
-        }
 
         private void Update()
         {
-            if (CheckForWin() && !hasWon)
+            if (Time.time > lastCheckTime + checkWinDelay)
             {
-                hasWon = true;
-                Debug.Log("Check for win :: WE WIN WOOOOO"); 
+                if (CheckForWin() && !hasWon)
+                {
+                    OnWin();    
+                }
+
+                lastCheckTime = Time.time; 
             }
+        }
+
+        private void OnWin()
+        {
+            hasWon = true;
+            transform.DOMoveZ(endMovePos, endMoveDuration).onComplete += OnComplete;
+        }
+
+        private void OnComplete()
+        {
+            GlobalFader.Instance.ActionFade(.3f, 1, () => GameController.Instance.OnCompletedLevel?.Invoke());
         }
 
         private bool CheckForWin()
