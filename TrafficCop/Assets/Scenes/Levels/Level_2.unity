@@ -475,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3a6b3b3cbef4bd547ba26fa2fb59dd21, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.019997
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3a6b3b3cbef4bd547ba26fa2fb59dd21, type: 3}
       propertyPath: m_LocalRotation.x
@@ -982,6 +982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gestureController: {fileID: 1640756206}
   mainCam: {fileID: 1687258584}
+  fingerTrail: {fileID: 0}
 --- !u!20 &1687258584 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5869714802199773269, guid: 2e294be44193a4dff9a9d7b7f21019f8,
@@ -1102,7 +1103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d09a964ced5836b4ebb7952b3c62fd84, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.25
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d09a964ced5836b4ebb7952b3c62fd84, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1255,7 +1256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d09a964ced5836b4ebb7952b3c62fd84, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.25
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d09a964ced5836b4ebb7952b3c62fd84, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1396,6 +1397,16 @@ PrefabInstance:
         type: 3}
       propertyPath: threeStarTime
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976730608203215577, guid: 0d757583d7ffcf84ea997bb2bda7a8ca,
+        type: 3}
+      propertyPath: maxBackwardsValue
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976730608203215577, guid: 0d757583d7ffcf84ea997bb2bda7a8ca,
+        type: 3}
+      propertyPath: maxForwardValue
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3976730608203215578, guid: 0d757583d7ffcf84ea997bb2bda7a8ca,
         type: 3}

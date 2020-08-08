@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using TrafficCop.GameUI;
+using TrafficCop.Utility;
 using UnityEngine;
 
 namespace TrafficCop.Controllers
@@ -8,8 +10,10 @@ namespace TrafficCop.Controllers
     { 
         public static GameController Instance;
 
-        public delegate void CompletedLevel();
+        public delegate void CompletedLevel(bool success);
         public CompletedLevel OnCompletedLevel;
+
+        public bool shouldCheckForWin = true; 
 
         [Header("Level Settings")] public int levelNumber; 
         public float oneStarTime;
@@ -24,7 +28,8 @@ namespace TrafficCop.Controllers
         public EndGameUiPanel endGameUi; 
         
         private float startTime;
-        private float responseTime; 
+        private float responseTime;
+        private bool lostGame = false; 
         
         
         private void Awake()
@@ -51,16 +56,35 @@ namespace TrafficCop.Controllers
             OnCompletedLevel -= OnLevelComplete; 
         }
 
-        public void OnLevelComplete()
+        public void OnLevelComplete(bool success)
         {
-            responseTime = Time.time - startTime; 
-            
-            endGameUi.gameObject.SetActive(true);
-            endGameUi.Init();
+            responseTime = Time.time - startTime;
+            if (success)
+            {
+                endGameUi.gameObject.SetActive(true);
+                endGameUi.Init(true);
+            }
+            else
+            {
+                StartCoroutine(GameLost());
+            }
+        }
+
+        IEnumerator GameLost()
+        {
+            lostGame = true; 
+            yield return new WaitForSeconds(1);
+            GlobalFader.Instance.ActionFade(1, 1, () =>
+            {
+                endGameUi.gameObject.SetActive(true);
+                endGameUi.Init(false); 
+            });
         }
 
         public int StarsWon()
         {
+            if (lostGame) return 0;
+            
             if (responseTime > oneStarTime)
             {
                 return 0; 

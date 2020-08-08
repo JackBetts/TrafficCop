@@ -21,7 +21,7 @@ namespace TrafficCop.Car
 
         private void Update()
         {
-            if (Time.time > lastCheckTime + checkWinDelay)
+            if (GameController.Instance.shouldCheckForWin && Time.time > lastCheckTime + checkWinDelay)
             {
                 if (CheckForWin() && !hasWon)
                 {
@@ -40,7 +40,7 @@ namespace TrafficCop.Car
 
         private void OnComplete()
         {
-            GlobalFader.Instance.ActionFade(.3f, 1, () => GameController.Instance.OnCompletedLevel?.Invoke());
+            GlobalFader.Instance.ActionFade(.3f, 1, () => GameController.Instance.OnCompletedLevel?.Invoke(true));
         }
 
         private bool CheckForWin()

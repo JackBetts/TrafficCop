@@ -8,8 +8,10 @@ namespace TrafficCop.GameUI
     public class EndGameUiPanel : MonoBehaviour
     {
         public TextMeshProUGUI responseTimeText;
-        public TextMeshProUGUI levelNumberText; 
-        
+        public TextMeshProUGUI levelNumberText;
+        public TextMeshProUGUI levelCompletedText;
+        public Button nextLevelButton;
+
         [Space]
         
         public Image starImage_1;
@@ -20,12 +22,23 @@ namespace TrafficCop.GameUI
         public Sprite fullStarSprite;
         public Color starGoldColor;
 
-        public void Init()
+        public void Init(bool levelCompleted)
         {
             GameController controller = GameController.Instance;
-
-            levelNumberText.text = "LEVEL " + controller.levelNumber; 
-            responseTimeText.text = controller.GetResponseTime() + "s";
+            
+            levelNumberText.text = "LEVEL " + controller.levelNumber;
+            if (levelCompleted)
+            {
+                responseTimeText.text = controller.GetResponseTime() + "s";
+                levelCompletedText.text = "COMPLETE!";
+                nextLevelButton.interactable = true;
+            }
+            else
+            {
+                levelCompletedText.text = "FAILED";
+                responseTimeText.text = "FAILED";
+                nextLevelButton.interactable = false; 
+            }
 
             starImage_1.sprite = controller.StarsWon() >= 1 ? fullStarSprite : emptyStarSprite;
             starImage_2.sprite = controller.StarsWon() >= 2 ? fullStarSprite : emptyStarSprite;

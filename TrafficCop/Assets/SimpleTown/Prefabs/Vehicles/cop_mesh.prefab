@@ -127,6 +127,11 @@ MonoBehaviour:
   moveSpeed: 10
   lateralMoveDistance: 0
   forwardMoveDistance: 0
+  explosionPrefab: {fileID: 5363017250465266940, guid: 787efd7a4b628481ca264924980ee2ff,
+    type: 3}
+  aud: {fileID: 0}
+  movedCarSfx: {fileID: 0}
+  cannotMoveSfx: {fileID: 0}
   endMoveDuration: 3
   endMovePos: 30
   raycastStart: {fileID: 715606043}

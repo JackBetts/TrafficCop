@@ -1043,6 +1043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gestureController: {fileID: 1640756206}
   mainCam: {fileID: 1687258584}
+  fingerTrail: {fileID: 0}
 --- !u!20 &1687258584 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5869714802199773269, guid: 2e294be44193a4dff9a9d7b7f21019f8,
@@ -1400,6 +1401,16 @@ PrefabInstance:
         type: 3}
       propertyPath: threeStarTime
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976730608203215577, guid: 0d757583d7ffcf84ea997bb2bda7a8ca,
+        type: 3}
+      propertyPath: maxForwardValue
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976730608203215577, guid: 0d757583d7ffcf84ea997bb2bda7a8ca,
+        type: 3}
+      propertyPath: maxBackwardsValue
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 3976730608203215578, guid: 0d757583d7ffcf84ea997bb2bda7a8ca,
         type: 3}

@@ -149,6 +149,7 @@
           <e p="TrafficCop" t="Include">
             <e p="Car" t="Include">
               <e p="Car.cs" t="Include" />
+              <e p="Explosion.cs" t="Include" />
               <e p="PoliceCar.cs" t="Include" />
             </e>
             <e p="Controllers" t="Include">
@@ -1135,7 +1136,7 @@
       <e p="Temp/bin" t="ExcludeRecursive" />
       <e p="TrafficCop.sln" t="IncludeFlat" />
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_TrafficCop.1019524034.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.1/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.1/resharper-host/local/Transient/ReSharperHost/v201/SolutionCaches/_TrafficCop.1019524034.00" t="ExcludeRecursive" />
   </component>
 </project>

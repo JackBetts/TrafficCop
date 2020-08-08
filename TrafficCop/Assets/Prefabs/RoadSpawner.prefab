@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roadsToSpawn: 20
-  roadPrefab: {fileID: 547983199486949131, guid: c63cd280f1b1bd346ae6102b84ea05aa,
+  roadPrefab: {fileID: 547983199486949131, guid: 28916ffc6901a4902a6a62fd7c3bde6c,
     type: 3}

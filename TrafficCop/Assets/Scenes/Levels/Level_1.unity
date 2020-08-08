@@ -1684,6 +1684,16 @@ PrefabInstance:
       propertyPath: endGameUi
       value: 
       objectReference: {fileID: 320346747}
+    - target: {fileID: 3976730608203215577, guid: 0d757583d7ffcf84ea997bb2bda7a8ca,
+        type: 3}
+      propertyPath: maxBackwardsValue
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976730608203215577, guid: 0d757583d7ffcf84ea997bb2bda7a8ca,
+        type: 3}
+      propertyPath: maxForwardValue
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3976730608203215578, guid: 0d757583d7ffcf84ea997bb2bda7a8ca,
         type: 3}
       propertyPath: m_LocalPosition.x

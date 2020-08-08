@@ -904,6 +904,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   responseTimeText: {fileID: 5491946775946667940}
   levelNumberText: {fileID: 5491946776600294206}
+  levelCompletedText: {fileID: 5491946775998740804}
+  nextLevelButton: {fileID: 5491946775770032620}
   starImage_1: {fileID: 5491946776453232284}
   starImage_2: {fileID: 5491946775228953833}
   starImage_3: {fileID: 5491946775874257200}

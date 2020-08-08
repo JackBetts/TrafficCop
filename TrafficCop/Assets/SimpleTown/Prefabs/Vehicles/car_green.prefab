@@ -127,6 +127,8 @@ MonoBehaviour:
   moveSpeed: 20
   lateralMoveDistance: 7
   forwardMoveDistance: 7
+  explosionPrefab: {fileID: 5363017250465266940, guid: 787efd7a4b628481ca264924980ee2ff,
+    type: 3}
   aud: {fileID: 235728444}
   movedCarSfx: {fileID: 8300000, guid: bfb94688d4732244da414a8b11606e06, type: 3}
   cannotMoveSfx: {fileID: 8300000, guid: d9dfe7d511b69c345854442ff069b780, type: 3}

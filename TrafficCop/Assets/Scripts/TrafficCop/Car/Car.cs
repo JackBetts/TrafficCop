@@ -12,6 +12,9 @@ namespace TrafficCop.Car
         public float lateralMoveDistance;
         public float forwardMoveDistance;
 
+        [Header("Explosion Effect")]
+        public GameObject explosionPrefab;
+
         [Header("Audio")] public AudioSource aud;
         public AudioClip movedCarSfx;
         public AudioClip cannotMoveSfx;
@@ -85,10 +88,17 @@ namespace TrafficCop.Car
         {
             if (other.collider.GetComponent<Car>())
             {
-                //Shake both the cars
-                
                 StopAllCoroutines();
-                StartCoroutine(MoveCarToDesiredLocation(originPosition)); 
+                //StartCoroutine(MoveCarToDesiredLocation(originPosition)); 
+                
+                //Explode
+                if (explosionPrefab)
+                {
+                    Instantiate(explosionPrefab, other.GetContact(0).point, Quaternion.identity); 
+                }
+
+                GameController.Instance.shouldCheckForWin = false; 
+                GameController.Instance.OnCompletedLevel?.Invoke(false);
             }
         }
 
@@ -103,13 +113,37 @@ namespace TrafficCop.Car
             Debug.Log("Check Can Move :: Final pos is : " + finalPos); 
             GameController controller = GameController.Instance;
 
-            if (finalPos.x > controller.maxRightValue) return false;
-            if (finalPos.x < controller.maxLeftValue) return false;
+            if (finalPos.x > controller.maxRightValue)
+            {
+                Debug.LogFormat("Car Move Check Failed :: X Pos {0} is greater than {1}", finalPos.x,
+                    controller.maxRightValue);
+                return false;   
+            }
 
-            if (finalPos.z > controller.maxForwardValue) return false;
-            if (finalPos.z < controller.maxBackwardsValue) return false;
+            if (finalPos.x < controller.maxLeftValue)
+            {
+                Debug.LogFormat("Car Move Check Failed :: X Pos {0} is less than {1}", finalPos.x,
+                    controller.maxLeftValue);
+                return false;
+            }
 
-             return true; 
+            if (finalPos.z > controller.maxForwardValue)
+            {
+                Debug.LogFormat("Car Move Check Failed :: Z Pos {0} is greater than {1}", finalPos.z,
+                    controller.maxForwardValue);
+                return false;
+            }
+
+            if (finalPos.z < controller.maxBackwardsValue)
+            {
+                Debug.LogFormat("Car Move Check Failed :: Z Pos {0} is less than {1}", finalPos.z,
+                    controller.maxBackwardsValue);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         private Vector2 FinalSwipeValue(Vector2 swipeInput)
         {
