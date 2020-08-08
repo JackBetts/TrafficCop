@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+    <e p="C:\Users\JackB\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\JackB\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_TrafficCop.1156179438.00" t="ExcludeRecursive" />
+    <e p="D:\UnityProjects\TrafficCop\TrafficCop" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -147,6 +149,9 @@
           </e>
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="TrafficCop" t="Include">
+            <e p="Cameras" t="Include">
+              <e p="HelicopterCamera.cs" t="Include" />
+            </e>
             <e p="Car" t="Include">
               <e p="Car.cs" t="Include" />
               <e p="Explosion.cs" t="Include" />
@@ -1133,10 +1138,8 @@
       <e p="Sisus.CreateScriptWizard.csproj" t="IncludeRecursive" />
       <e p="Sisus.FastReflection.csproj" t="IncludeRecursive" />
       <e p="Sisus.WebView.csproj" t="IncludeRecursive" />
-      <e p="Temp/bin" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
       <e p="TrafficCop.sln" t="IncludeFlat" />
     </e>
-    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.1/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.1/resharper-host/local/Transient/ReSharperHost/v201/SolutionCaches/_TrafficCop.1019524034.00" t="ExcludeRecursive" />
   </component>
 </project>
