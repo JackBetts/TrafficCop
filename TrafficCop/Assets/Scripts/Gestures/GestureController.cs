@@ -56,6 +56,13 @@ namespace InputSamples.Gestures
         public event Action<SwipeInput> PotentiallySwiped;
 
         /// <summary>
+        /// JB - Adding drag event at the top of potentially swiped
+        /// </summary>
+        public event Action<SwipeInput> Dragged;
+
+        public event Action<SwipeInput> Released; 
+
+        /// <summary>
         /// Event fired when a user performs a swipe gesture.
         /// </summary>
         public event Action<SwipeInput> Swiped;
@@ -110,9 +117,11 @@ namespace InputSamples.Gestures
                 // Probably caught by UI, or the input was otherwise lost
                 return;
             }
-
+            
             existingGesture.SubmitPoint(input.Position, time);
-
+            
+            Dragged?.Invoke(new SwipeInput(existingGesture));
+            
             if (IsValidSwipe(ref existingGesture))
             {
                 PotentiallySwiped?.Invoke(new SwipeInput(existingGesture));
@@ -131,7 +140,9 @@ namespace InputSamples.Gestures
 
             activeGestures.Remove(input.InputId);
             existingGesture.SubmitPoint(input.Position, time);
-
+            
+            Released?.Invoke(new SwipeInput(existingGesture));
+            
             if (IsValidSwipe(ref existingGesture))
             {
                 Swiped?.Invoke(new SwipeInput(existingGesture));

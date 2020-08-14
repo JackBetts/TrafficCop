@@ -8,58 +8,60 @@ namespace TrafficCop.Controllers
 {
     public class SwipeController : MonoBehaviour
     {
-        [SerializeField] private GestureController gestureController; 
-        private readonly Dictionary<int, Car.Car> swipeMapping = new Dictionary<int, Car.Car>();
+        [SerializeField] private GestureController gestureController;
 
         public Camera mainCam;
-        public RectTransform fingerTrail;
+        private Car.Car _currentCarClicked;
 
         private void OnEnable()
         {
             gestureController.Pressed += GestureControllerOnPressed;
-            gestureController.PotentiallySwiped += GestureControllerOnPotentiallySwiped;
-            gestureController.Swiped += GestureControllerOnSwiped;
+            gestureController.Dragged += GestureControllerOnDragged;
+            gestureController.Released += GestureControllerOnReleased;
         }
 
         private void OnDisable()
         {
             gestureController.Pressed -= GestureControllerOnPressed;
-            gestureController.PotentiallySwiped -= GestureControllerOnPotentiallySwiped;
-            gestureController.Swiped -= GestureControllerOnSwiped;
-        }
-
-        private void GestureControllerOnSwiped(SwipeInput obj)
-        {
-            Car.Car swipedCar;
-            if (!swipeMapping.TryGetValue(obj.InputId, out swipedCar))
-            {
-                return;
-            }
-
-            swipeMapping.Remove(obj.InputId);
-            swipedCar.CarMoveAttempt(obj);
-        }
-
-        private void GestureControllerOnPotentiallySwiped(SwipeInput obj)
-        {
+            gestureController.Dragged -= GestureControllerOnDragged;
+            gestureController.Released -= GestureControllerOnReleased; 
         }
 
         private void GestureControllerOnPressed(SwipeInput obj)
         {
-            swipeMapping.Remove(obj.InputId);
-
-            
+            Ray ray = mainCam.ScreenPointToRay(obj.EndPosition);
+                
+            if (!Physics.Raycast(ray, out RaycastHit hit, 500f)) return;
+            if (hit.collider.GetComponent<Car.Car>())
+            {
+                Car.Car hitCar = hit.collider.GetComponent<Car.Car>();
+                _currentCarClicked = hitCar; 
+                Vector3 point = hit.point;
+                point.y = 0;
+                _currentCarClicked.SetTargetPosition(point);
+                _currentCarClicked.SetCarActive(true);
+            }
+        }
+        
+        private void GestureControllerOnReleased(SwipeInput obj)
+        {
+            if (!_currentCarClicked) return;
+            _currentCarClicked.SetCarActive(false);
+            _currentCarClicked = null; 
+        }
+        
+        private void GestureControllerOnDragged(SwipeInput obj)
+        {
+            if (!_currentCarClicked) return; 
             
             RaycastHit hit;
             Ray ray = mainCam.ScreenPointToRay(obj.EndPosition);
-            if (Physics.Raycast(ray, out hit, 500f))
-            {
-                if (hit.collider.GetComponent<Car.Car>())
-                {
-                    Car.Car hitCar = hit.collider.GetComponent<Car.Car>();
-                    swipeMapping[obj.InputId] = hitCar; 
-                }
-            }
+                
+            if (!Physics.Raycast(ray, out hit, 500f)) return;
+
+            Vector3 point = hit.point;
+            point.y = 0;
+            _currentCarClicked.SetTargetPosition(point);
         }
     }
 }

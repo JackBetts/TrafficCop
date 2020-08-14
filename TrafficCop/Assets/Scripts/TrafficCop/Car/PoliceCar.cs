@@ -8,11 +8,10 @@ namespace TrafficCop.Car
 {
     public class PoliceCar : Car
     {
-
         public float endMoveDuration;
         public float endMovePos; 
         
-        public Transform raycastStart;
+        public Transform[] raycastStarts;
         public float raycastLength;
         public float checkWinDelay; 
 
@@ -45,15 +44,14 @@ namespace TrafficCop.Car
 
         private bool CheckForWin()
         {
-            if (Physics.Raycast(raycastStart.position, Vector3.forward, out RaycastHit hit, raycastLength))
+            foreach (Transform raycastStart in raycastStarts)
             {
-                if (hit.collider)
+                if (Physics.Raycast(raycastStart.position, Vector3.forward, out RaycastHit hit, raycastLength))
                 {
-                    Debug.Log("Check for win :: hit collider :: " + hit.collider.name);
-                    return false;
-                }
+                    if (hit.collider) return false;
+                }   
             }
-            
+
             return true;
         }
     }

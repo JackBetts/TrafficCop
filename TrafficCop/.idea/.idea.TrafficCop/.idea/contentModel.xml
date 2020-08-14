@@ -4,6 +4,7 @@
     <e p="C:\Users\JackB\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
     <e p="C:\Users\JackB\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_TrafficCop.1156179438.00" t="ExcludeRecursive" />
     <e p="D:\UnityProjects\TrafficCop\TrafficCop" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -127,6 +128,16 @@
             <e p="ETFXLightFade.cs" t="Include" />
             <e p="ETFXPitchRandomizer.cs" t="Include" />
             <e p="ETFXRotation.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Plugins" t="Include">
+          <e p="GitHub" t="Include">
+            <e p="Editor" t="Include">
+              <e p="credits.txt" t="Include" />
+              <e p="eula.txt" t="Include" />
+              <e p="ExtensionLoader.cs" t="Include" />
+              <e p="UnityAPIWrapper.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Scripts" t="Include">

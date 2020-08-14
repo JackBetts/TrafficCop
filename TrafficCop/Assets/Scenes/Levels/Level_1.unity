@@ -556,6 +556,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoliceCar
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d2cae8cbe2583924ea2ce2a6644b7da9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d2cae8cbe2583924ea2ce2a6644b7da9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1155,12 +1159,12 @@ PrefabInstance:
     - target: {fileID: 5869714802199773268, guid: 2e294be44193a4dff9a9d7b7f21019f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.6
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 5869714802199773268, guid: 2e294be44193a4dff9a9d7b7f21019f8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.319996
+      value: -32
       objectReference: {fileID: 0}
     - target: {fileID: 5869714802199773268, guid: 2e294be44193a4dff9a9d7b7f21019f8,
         type: 3}
@@ -1290,7 +1294,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gestureController: {fileID: 1640756206}
   mainCam: {fileID: 371690026}
-  fingerTrail: {fileID: 429669440}
 --- !u!1001 &1673299818
 PrefabInstance:
   m_ObjectHideFlags: 0

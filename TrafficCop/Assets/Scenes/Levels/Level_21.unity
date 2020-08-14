@@ -1073,7 +1073,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gestureController: {fileID: 1640756206}
   mainCam: {fileID: 1687258584}
-  fingerTrail: {fileID: 0}
 --- !u!20 &1687258584 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5869714802199773269, guid: 2e294be44193a4dff9a9d7b7f21019f8,
@@ -1593,12 +1592,12 @@ PrefabInstance:
     - target: {fileID: 5869714802199773268, guid: 2e294be44193a4dff9a9d7b7f21019f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 38.11
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 5869714802199773268, guid: 2e294be44193a4dff9a9d7b7f21019f8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -33.98
+      value: -32
       objectReference: {fileID: 0}
     - target: {fileID: 5869714802199773268, guid: 2e294be44193a4dff9a9d7b7f21019f8,
         type: 3}
