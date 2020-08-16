@@ -35,6 +35,7 @@ namespace TrafficCop.Car
         {
             hasWon = true;
             transform.DOMoveZ(endMovePos, endMoveDuration).onComplete += OnComplete;
+            GameController.Instance.OnStopCars?.Invoke(false);
         }
 
         private void OnComplete()

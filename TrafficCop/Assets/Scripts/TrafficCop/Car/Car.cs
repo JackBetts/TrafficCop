@@ -18,19 +18,32 @@ namespace TrafficCop.Car
         public AudioClip cannotMoveSfx;
         
         //PRIVATE FIELDS
+        private bool _canMove = true; 
         private bool _isMoving = false;
         private Vector3 _targetPosition;
 
+        private void OnEnable()
+        {
+            GameController.Instance.OnStopCars += SetCarEnabled; 
+        }
+
+        private void OnDisable()
+        {
+            GameController.Instance.OnStopCars -= SetCarEnabled; 
+        }
 
         public void SetTargetPosition(Vector3 position)
         {
+            if (!_canMove) return; 
             _targetPosition = position; 
         }
 
-        public void SetCarActive(bool active) => _isMoving = active; 
+        public void SetCarMoving(bool active) => _isMoving = active; 
+        public void SetCarEnabled(bool active) => _canMove = active; 
         
         private void Update()
         {
+            if (!_canMove) return; 
             if (!_isMoving) return;
 
             float distance = Vector3.Distance(transform.position, _targetPosition);
@@ -43,9 +56,10 @@ namespace TrafficCop.Car
 
         private void OnCollisionEnter(Collision other)
         {
+            if (!_canMove) return; 
             if (other.collider.GetComponent<Car>())
             {
-                SetCarActive(false);
+                SetCarMoving(false);
                 StopAllCoroutines();
 
                 //Explode

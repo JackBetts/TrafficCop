@@ -39,14 +39,14 @@ namespace TrafficCop.Controllers
                 Vector3 point = hit.point;
                 point.y = 0;
                 _currentCarClicked.SetTargetPosition(point);
-                _currentCarClicked.SetCarActive(true);
+                _currentCarClicked.SetCarMoving(true);
             }
         }
         
         private void GestureControllerOnReleased(SwipeInput obj)
         {
             if (!_currentCarClicked) return;
-            _currentCarClicked.SetCarActive(false);
+            _currentCarClicked.SetCarMoving(false);
             _currentCarClicked = null; 
         }
         

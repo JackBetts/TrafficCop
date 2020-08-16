@@ -2,6 +2,7 @@
 using System.Collections;
 using TrafficCop.GameUI;
 using TrafficCop.Utility;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 namespace TrafficCop.Controllers
@@ -13,17 +14,15 @@ namespace TrafficCop.Controllers
         public delegate void CompletedLevel(bool success);
         public CompletedLevel OnCompletedLevel;
 
+        public delegate void StopCars(bool carsActive);
+        public StopCars OnStopCars;
+
         public bool shouldCheckForWin = true; 
 
         [Header("Level Settings")] public int levelNumber; 
         public float oneStarTime;
         public float twoStarTime;
         public float threeStarTime;
-
-        [Space] public float maxForwardValue;
-        public float maxBackwardsValue;
-        public float maxLeftValue;
-        public float maxRightValue; 
 
         public EndGameUiPanel endGameUi; 
         
