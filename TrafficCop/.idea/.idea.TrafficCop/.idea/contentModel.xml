@@ -161,12 +161,14 @@
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="TrafficCop" t="Include">
             <e p="Cameras" t="Include">
+              <e p="FollowCamera.cs" t="Include" />
               <e p="HelicopterCamera.cs" t="Include" />
             </e>
             <e p="Car" t="Include">
               <e p="Car.cs" t="Include" />
               <e p="Explosion.cs" t="Include" />
               <e p="PoliceCar.cs" t="Include" />
+              <e p="PoliceCarEndless.cs" t="Include" />
             </e>
             <e p="Controllers" t="Include">
               <e p="GameController.cs" t="Include" />

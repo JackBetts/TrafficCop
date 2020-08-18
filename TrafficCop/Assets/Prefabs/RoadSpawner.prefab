@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4518655589990295602}
   - component: {fileID: 4518655589990295603}
+  - component: {fileID: 6621682851647323491}
   m_Layer: 0
   m_Name: RoadSpawner
   m_TagString: Untagged
@@ -38,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4518655589990295604}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e32d818914dda740874187dd5a47953, type: 3}
   m_Name: 
@@ -46,3 +47,20 @@ MonoBehaviour:
   roadsToSpawn: 20
   roadPrefab: {fileID: 547983199486949131, guid: 28916ffc6901a4902a6a62fd7c3bde6c,
     type: 3}
+--- !u!114 &6621682851647323491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518655589990295604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ec7533c527aa94b9998b4d9150f040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roadPrefab: {fileID: 547983199486949131, guid: c63cd280f1b1bd346ae6102b84ea05aa,
+    type: 3}
+  spawnTarget: {fileID: 0}
+  roadDistance: 240
+  spawnAmount: 5

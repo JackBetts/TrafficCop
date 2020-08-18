@@ -43,14 +43,23 @@ namespace TrafficCop.Car
         
         private void Update()
         {
-            if (!_canMove) return; 
-            if (!_isMoving) return;
-
-            float distance = Vector3.Distance(transform.position, _targetPosition);
-            if (distance >= 1)
+            if (!_canMove) return;
+            if (!_isMoving)
             {
-                float step = moveSpeed * Time.deltaTime;
-                transform.position = Vector3.MoveTowards(transform.position, _targetPosition, step);
+                if (GameController.Instance.isEndlessMode)
+                {
+                    float step = moveSpeed * Time.deltaTime;
+                    transform.position += Vector3.forward * step;   
+                }
+            }
+            else
+            {
+                float distance = Vector3.Distance(transform.position, _targetPosition);
+                if (distance >= 1)
+                {
+                    float step = moveSpeed * Time.deltaTime;
+                    transform.position = Vector3.MoveTowards(transform.position, _targetPosition, step);
+                }   
             }
         }
 
@@ -69,6 +78,7 @@ namespace TrafficCop.Car
                 }
 
                 GameController.Instance.shouldCheckForWin = false; 
+                GameController.Instance.OnStopCars?.Invoke(false);
                 GameController.Instance.OnCompletedLevel?.Invoke(false);
             }
         }

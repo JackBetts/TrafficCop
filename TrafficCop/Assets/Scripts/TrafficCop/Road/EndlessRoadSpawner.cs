@@ -4,16 +4,25 @@ namespace TrafficCop.Road
 {
     public class EndlessRoadSpawner : MonoBehaviour
     {
-        // Start is called before the first frame update
+        public GameObject roadPrefab;
+        public Transform spawnTarget; 
+        
+        public float roadDistance;
+        public float spawnAmount; 
         void Start()
         {
-        
+            SpawnRoads();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void SpawnRoads()
         {
-        
+            for (int i = 0; i < spawnAmount; i++)
+            {
+                Vector3 pos = spawnTarget.position;
+                Instantiate(roadPrefab, pos, Quaternion.identity);
+                pos.z += roadDistance;
+                spawnTarget.position = pos; 
+            }
         }
     }
 }

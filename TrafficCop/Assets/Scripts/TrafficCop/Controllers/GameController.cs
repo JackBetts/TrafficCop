@@ -10,14 +10,15 @@ namespace TrafficCop.Controllers
     public class GameController : MonoBehaviour
     { 
         public static GameController Instance;
-
+    
         public delegate void CompletedLevel(bool success);
         public CompletedLevel OnCompletedLevel;
-
+    
         public delegate void StopCars(bool carsActive);
         public StopCars OnStopCars;
-
-        public bool shouldCheckForWin = true; 
+    
+        public bool shouldCheckForWin = true;
+        public bool isEndlessMode; 
 
         [Header("Level Settings")] public int levelNumber; 
         public float oneStarTime;
