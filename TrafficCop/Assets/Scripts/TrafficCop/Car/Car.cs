@@ -44,15 +44,15 @@ namespace TrafficCop.Car
         private void Update()
         {
             if (!_canMove) return;
-            if (!_isMoving)
+            
+            //Move the car forwards a set speed
+            if (GameController.Instance.isEndlessMode) 
             {
-                if (GameController.Instance.isEndlessMode)
-                {
-                    float step = moveSpeed * Time.deltaTime;
-                    transform.position += Vector3.forward * step;   
-                }
+                float step = moveSpeed * Time.deltaTime;
+                transform.position += Vector3.forward * step;   
             }
-            else
+            
+            if(_isMoving)
             {
                 float distance = Vector3.Distance(transform.position, _targetPosition);
                 if (distance >= 1)

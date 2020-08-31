@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.5651618, g: 0.6357212, b: 0.7219677, a: 1}
+  m_IndirectSpecularColor: {r: 0.56516176, g: 0.63572097, b: 0.7219672, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1429,6 +1429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gestureController: {fileID: 1640756206}
   mainCam: {fileID: 371690026}
+  touchOffset: {x: 0, y: 0, z: 3}
 --- !u!1001 &1673299818
 PrefabInstance:
   m_ObjectHideFlags: 0
